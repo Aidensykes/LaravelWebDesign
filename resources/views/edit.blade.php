@@ -9,7 +9,7 @@ Edit A Project
 
 @section('content')
 
-<form method="POST" action="/project/{{$project->projectname}}">
+<form method="POST" action="/project/{{$project->id}}">
 
 {{method_field('PATCH')}}
 
@@ -34,7 +34,10 @@ Edit A Project
         <button type ="submit"> Edit A Project </button>
 </form>
 
-<form>
+<form method="POST" action="/project/{{$project->id}}">
+
+{{method_field('DELETE')}}
+ {{csrf_field()}}
     <div>
         <button type ="submit"> Delete A Project </button>
 </form>
