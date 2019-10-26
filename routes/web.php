@@ -20,6 +20,8 @@ Route::get('/project','PagesController@project');
 Route::get('/todo','PagesController@todo');
 
 Route::get('/project','ProjectsController@index');
+Route::post('/project','ProjectsController@store');
+Route::get('/create','ProjectsController@create');
 
 
 

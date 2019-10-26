@@ -15,4 +15,24 @@ class ProjectsController extends Controller
         return view('project',['projects' => $projects]);
         
     }
+    
+    public function create(){
+        
+        return view('create');
+        
+    }
+    
+    public function store(){
+        
+        $project = new Project();
+        
+        $project->projectname = request ('projectname');
+        $project->projectdescription = request ('projectdescription');
+        $project->linkto = request ('linkto');
+        
+        $project->save();
+        
+        return redirect('/project');
+        
+    }
 }
