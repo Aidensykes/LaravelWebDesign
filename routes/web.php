@@ -24,6 +24,10 @@ Route::post('/project','ProjectsController@store');
 Route::get('/create','ProjectsController@create');
 
 
+Route::get('/{project}/show','ProjectsController@show');
+Route::get('/{project}/edit','ProjectsController@edit');
+
+
 
 
 

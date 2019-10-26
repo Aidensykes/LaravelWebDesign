@@ -35,4 +35,38 @@ class ProjectsController extends Controller
         return redirect('/project');
         
     }
+    
+    
+    public function show($id){
+        
+        $project = project::find($id);
+        return view('show',compact('project'));
+        
+}
+    
+     public function edit($id){
+        
+        $project = project::find($id);
+        return view('edit',compact('project'));
+        
+}
+        
+     public function update(){
+         
+        $project = project::find($id);
+         
+        $project->projectname = request ('projectname');
+        $project->projectdescription = request ('projectdescription');
+        $project->linkto = request ('linkto');
+        
+        $project->save();
+        
+        return redirect('/project');
+         
+         
+         
+         
+     }   
+        
+        
 }
