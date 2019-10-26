@@ -5,10 +5,13 @@
 My Projects
 
 
+
+@endsection
+
+@section('content')
 @foreach ($projects as $project)
 
-<li>{{$project->projectname}}</li>
+<li> <a href="{{$project->id}}"> {{$project->projectname}} </a> </li>
 
 @endforeach
-
 @endsection
