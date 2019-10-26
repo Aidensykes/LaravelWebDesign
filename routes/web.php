@@ -19,6 +19,7 @@ Route::get('/grade','PagesController@grade');
 Route::get('/project','PagesController@project');
 Route::get('/todo','PagesController@todo');
 
+Route::get('/project','ProjectsController@index');
 
 
 
