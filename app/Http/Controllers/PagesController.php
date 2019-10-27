@@ -52,7 +52,7 @@ class PagesController extends Controller
                 'Database integration through migrations and the Eloquent ORM - Done!',
                 'Forms including CSRF protection and data modification - Done!',
                 'Data cleansing and validation - Done!',
-                'Registration and authentication',
+                'Registration and authentication - Done!',
                 'Authorisation and Laravel Gate',
                 'Move onto Checkpoint 2!'
             ];

@@ -8,9 +8,20 @@ use App\project;
 
 class ProjectsController extends Controller
 {
+    
+    pubic function __construct(){
+        
+        $this->middleware('auth')->except(['show']);
+    }
+    
     public function index(){
         
-        $projects = \App\project::all();
+        
+     //   auth()->id()
+      //  auth()->user()
+       // auth()->check()
+        
+        $projects = Project::where('owner_id',auth()->id())->get();
         
         return view('project',['projects' => $projects]);
         
@@ -31,16 +42,15 @@ class ProjectsController extends Controller
         $project->linkto = request ('linkto');
         
         
-        request()->validate([
-        
-        'projectname' => ['required','min:3'],
+        $attributes = request()->validate([
+                'projectname' => ['required','min:3'],
         'projectdescription' => ['required','max:255'],
         'linkto' => 'required',
         
-        ]);
+        ])
         
-        
-        $project->save();
+        Project::create($attributes + ['owner_id'=> auth()->id()]);
+
         
         return redirect('/project');
         
