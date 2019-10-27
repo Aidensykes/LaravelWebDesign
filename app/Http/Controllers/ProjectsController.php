@@ -30,6 +30,16 @@ class ProjectsController extends Controller
         $project->projectdescription = request ('projectdescription');
         $project->linkto = request ('linkto');
         
+        
+        request()->validate([
+        
+        'projectname' => ['required','min:3'],
+        'projectdescription' => ['required','max:255'],
+        'linkto' => 'required',
+        
+        ]);
+        
+        
         $project->save();
         
         return redirect('/project');
