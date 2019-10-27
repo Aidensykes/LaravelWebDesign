@@ -49,9 +49,9 @@ class PagesController extends Controller
       $tasks = [
                 'Sending data to views - Done!',
                 'Controllers - Done!',
-                'Database integration through migrations and the Eloquent ORM',
-                'Forms including CSRF protection and data modification',
-                'Data cleansing and validation',
+                'Database integration through migrations and the Eloquent ORM - Done!',
+                'Forms including CSRF protection and data modification - Done!',
+                'Data cleansing and validation - Done!',
                 'Registration and authentication',
                 'Authorisation and Laravel Gate',
                 'Move onto Checkpoint 2!'
