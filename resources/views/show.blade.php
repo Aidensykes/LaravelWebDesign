@@ -43,4 +43,25 @@
 
 @endif
 
+<form method ="POST" action="/projects/{{$project->id}}/tasks" class="box">
+  {{csrf_field()}}
+    <div class ="field">
+        <label class="Label" for =""> New Task </label>
+        
+        <div class ="control">
+        
+            <input type ="text" class="input" name="" placeholder="New Task" required>
+            
+        </div>
+        
+    <div class ="field">
+        <div class ="control">
+            <button type="submit" class="button is-link">Add Task</button>
+        </div>
+    </div>
+    
+    @include ('errors')
+        
+</form>
+
 @endsection
