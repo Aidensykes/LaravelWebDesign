@@ -5,6 +5,7 @@
 <h1 class="title">{{$project->projectname}}</h1>
 
 
+
 @endsection
 
 @section('content')

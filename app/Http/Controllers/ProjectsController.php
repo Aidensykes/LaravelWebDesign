@@ -47,7 +47,7 @@ class ProjectsController extends Controller
         'projectdescription' => ['required','max:255'],
         'linkto' => 'required',
         
-        ])
+        ]);
         
         Project::create($attributes + ['owner_id'=> auth()->id()]);
 
@@ -57,9 +57,16 @@ class ProjectsController extends Controller
     }
     
     
-    public function show($id){
+    public function show(Project $project){
         
-        $project = project::findOrFail($id);
+        
+        if (\Gate::denies('update',$project)){
+            
+            abort(403);
+            
+        }
+        
+        
         return view('show',compact('project'));
         
 }
