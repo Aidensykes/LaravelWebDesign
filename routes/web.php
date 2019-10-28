@@ -33,7 +33,7 @@ Route::post('/{project}/tasks','ProjectTasksController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route:resource('projects','ProjectsController')->middleware('can:update,project');
+//Route:resource('projects','ProjectsController')->middleware('can:update,project');
 
 
 

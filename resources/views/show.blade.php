@@ -4,7 +4,9 @@
 
 <h1 class="title">{{$project->projectname}}</h1>
 
-
+@can('update',$project)
+    <a href="">Update</a>
+@endcan
 
 @endsection
 

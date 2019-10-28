@@ -9,7 +9,7 @@ use App\project;
 class ProjectsController extends Controller
 {
     
-    pubic function __construct(){
+    public function __construct(){
         
         $this->middleware('auth')->except(['show']);
     }
@@ -60,11 +60,11 @@ class ProjectsController extends Controller
     public function show(Project $project){
         
         
-        if (\Gate::denies('update',$project)){
-            
-            abort(403);
-            
-        }
+       // abort_unless(\Gate::allows('update',$project),403);
+       
+       $this=>authorize('update',$project);
+        
+        auth()=>user()=>cannot('update',$project);
         
         
         return view('show',compact('project'));
@@ -79,6 +79,8 @@ class ProjectsController extends Controller
 }
         
      public function update(){
+         
+         $this->authorize('update',$project);
          
         $project = project::findOrFail($id);
          
@@ -103,8 +105,8 @@ class ProjectsController extends Controller
         
         return redirect('/project');
          
-         
-         
+        
+
          
      }   
      
